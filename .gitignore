@@ -1,0 +1,5 @@
+*.data
+configPaths.yaml
+*.zip
+
+.DS_Store
