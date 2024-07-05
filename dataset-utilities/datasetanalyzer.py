@@ -61,9 +61,9 @@ def loadTracksInfo(setType: SetType) -> dict:
         return pickle.loads(f.read())
     
 def loadTracksInfoSubset(setType: SetType, instrumentsFilter: set = None, percentageSize: float = None) -> dict:
-    """Given a set of instruments this function returns the track infos only of the tracks composed by
-    the specified instruments. If percentageSize is not None the returned dictionary contains the percentageSize%
-    of the tracks in the original set; the choice of the tracks is casual
+    """Given the set of instruments "instrumentsFiletr" this function returns the track infos of the tracks for which "instrumentsFilter
+    is a subset of the instruments that compose each one track. If percentageSize is not None the returned dictionary contains the percentageSize%
+    of the tracks in the original set; the choice of the tracks is casual.
 
     Args:
         setType (SetType)
@@ -126,7 +126,7 @@ def getListOfAllInstruments(setType: SetType) -> list:
 
 def buildDatasetZip(instrumentsFilter: set, percentageSize: float) -> None:
     """Build a zip containing three folders: train, validation and test. Each one of these contains 
-    tracks only composed by the instruments specified in instrumentFilter set.
+    tracks for which "instrumentsFilter" is a subset of the instruments that compose each track.
 
     Args:
         instrumentsFilter (set): a set of instruments
