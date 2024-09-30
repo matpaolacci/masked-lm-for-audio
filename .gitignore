@@ -3,4 +3,3 @@ configPaths.yaml
 *.zip
 .venv
 .DS_Store
-dataset
