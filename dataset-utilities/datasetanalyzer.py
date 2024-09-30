@@ -22,6 +22,24 @@ List of all instruments used in the tracks provided by the dataset
 
 ############# TYPES & EXCEPTIONS ##############
 
+class InstrumentType(Enum):
+    BASS = 'Bass'
+    BRASS = 'Brass'
+    CHROMATIC_PERCUSSION = 'Chromatic Percussion'
+    DRUMS = 'Drums'
+    ETHNIC = 'Ethnic'
+    GUITAR = 'Guitar'
+    ORGAN = 'Organ'
+    PERCUSSIVE = 'Percussive'
+    PIANO = 'Piano'
+    PIPE = 'Pipe'
+    REED = 'Reed'
+    SOUND_EFFECTS = 'Sound Effects'
+    STRINGS = 'Strings'
+    STRINGS_CONTINUED = 'Strings (continued)'
+    SYNTH_LEAD = 'Synth Lead'
+    SYNTH_PAD = 'Synth Pad'
+
 class SetType(Enum):
     """Describe the set used to train the model.
     """
@@ -128,7 +146,7 @@ def buildDatasetZip(instrumentsFilter: set, percentageSize: float) -> None:
     """Build a zip containing three folders: train, validation and test. Each one of these contains 
     tracks for which "instrumentsFilter" is a subset of the instruments that compose each track.
 
-    Args:
+    Arguments:
         instrumentsFilter (set): a set of instruments
         percentageSize (float): a value in (0,1] inverval representing the percentage size of each set
             (train, validation, test), with respect to original size. 
@@ -137,10 +155,10 @@ def buildDatasetZip(instrumentsFilter: set, percentageSize: float) -> None:
     def addDirectoryToZip(sourceDirPath: str, zipFile: ZipFile, archiveDirectory: str):
         """Add the entire directory to zipFile.
 
-        Args:
+        Arguments:
             sourceDirPath (str): The directory you want to add to the zipFile
-            zipFile (ZipFile)
-            archiveDirectory (str): the directory where all files are placed
+            zipFile (ZipFile).
+            archiveDirectory (str): the directory where all files are placed.
         """
 
         for root, _, files in os.walk(sourceDirPath):
