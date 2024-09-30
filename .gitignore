@@ -4,3 +4,4 @@ configPaths.yaml
 .venv
 .DS_Store
 .dependencies
+main.py
